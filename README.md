@@ -2,7 +2,6 @@
 
 This is a starterkit to help deploy frontend applications to AWS. It includes some of the DX bells and whistles that managed services like Vercel offer, but with more control and less risk of enormous unexpected bills. 
 
-
 ## Overview 
 The **frontend-app** directory contains a React/Vite application. 
 
@@ -20,3 +19,7 @@ The **frontend-app** directory contains a React/Vite application.
 6. Preview deployments
 7. Some sort of dashboard 
 8. Cost monitoring/observability
+
+**Can't haves**
+9. Comments on live previews. 
+10. Feature flags.
