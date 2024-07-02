@@ -10,8 +10,6 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     UpdateReplacePolicy: Retain
-    DeletionPolicy: Delete
-    UpdateReplacePolicy: Delete
     Properties:
       BucketName: !Sub 'frontend-hosting-service-${AWS::AccountId}-${AWS::Region}'
       BucketEncryption:
