@@ -5,27 +5,26 @@ Description: >
 
   SAM Template for deploying infrastructure to host a frontend application
 
-Parameters:
-  BucketName:
-    Type: String
-    Default: !Sub 'frontend-hosting-service-${AWS::AccountId}-${AWS::Region}'
-
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
     DeletionPolicy: Delete
     UpdateReplacePolicy: Delete
     Properties:
-      BucketName: !Ref BucketName
+      BucketName: !Sub 'frontend-hosting-service-${AWS::AccountId}-${AWS::Region}'
       BucketEncryption:
         ServerSideEncryptionConfiguration:
           - ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
       PublicAccessBlockConfiguration:
-        BlockPublicAcls       : true
+        BlockPublicAcls       : false
         BlockPublicPolicy     : false
-        IgnorePublicAcls      : true
+        IgnorePublicAcls      : false
         RestrictPublicBuckets : false
+      WebsiteConfiguration:
+        IndexDocument: index.html
 
   S3BucketPolicy:
     Type: AWS::S3::BucketPolicy

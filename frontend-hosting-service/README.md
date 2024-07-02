@@ -7,21 +7,15 @@ The AWS resources provisioned by the service are defined in the `template.yaml` 
 ## Overview of service resources
 This service provisions an S3 bucket with public access permissions which allow a website can be served from it.
 
-
-## Deploy the sample application
-
-AWS SAM is an extension of the AWS CLI that adds functionality for building and testing Lambda applications. It uses Docker to run your functions in an Amazon Linux environment that matches Lambda. It can also emulate your application's build environment and API.
-
 ### Requirements
 
 - [SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
 
-To build and deploy your application for the first time, run the following in your shell:
-
-```bash
-sam build
-sam deploy --guided
-```
+## Deploy this service
+1. Delete the `samconfig.toml` file. 
+2. Ensure you have your AWS credentials loaded as environment variables. You can test this by running `aws sts get-caller-identity --query 'Account' --output text` and checking if there is an account-id outputted and if it is correct. 
+3. Run `sam build`
+4. Run `sam deploy --guided`, fill in the parameters, and select deploy the changeset.
 
 The first command will build the source of your application. The second command will package and deploy your application to AWS, with a series of prompts:
 
@@ -30,6 +24,8 @@ The first command will build the source of your application. The second command 
 * **Confirm changes before deploy**: **Yes** - it's very valuable to be able to review a list of the provisioned resources before they are deployed.
 * **Allow SAM CLI IAM role creation**: Yes, they allows SAM to create IAM roles for some resources. Be default they have low privileges. 
 * **Save arguments to samconfig.toml**: Yes. This saves your deploy config to `samconfig.toml` so in future your can just run `sam-deploy` without specifying parameters to deploy changes to your application.
+
+You will be prompted to keep your bucket name as default (`frontend-hosting-service-${account-id}-${region}`) or provide a new one, you should keep this as default or the upload and rollback scripts won't work. 
 
 
 ## Extending this service

@@ -21,7 +21,6 @@ s3_prefix = "frontend-hosting-service"
 region = "eu-west-1"
 disable_rollback = true
 image_repositories = []
-parameter_overrides = "BucketName=\"frontend-hosting-service-659430677818-eu-west-1\""
 
 [default.package.parameters]
 resolve_s3 = true
