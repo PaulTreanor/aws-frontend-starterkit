@@ -8,9 +8,9 @@ The **frontend-app** directory contains a React/Vite application.
 ## 🛣️ Roadmap 
 **Must haves**
 
-1. Basic website hosting with S3
+1. ~~Basic website hosting with S3~~
 2. Set up the CDN with Cloudfront 
-3. Integrate that with a custom domain name
+3. Integrate that with a custom domain name and certs
 4. Integrate a CDCD pipeline with GitHub Actions (should work on main branch)
 
 **Nice to haves**
@@ -21,5 +21,6 @@ The **frontend-app** directory contains a React/Vite application.
 8. Cost monitoring/observability
 
 **Can't haves**
+
 9. Comments on live previews. 
 10. Feature flags.
